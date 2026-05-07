@@ -1,0 +1,180 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww18960\viewh21600\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="es">\
+<head>\
+<meta charset="UTF-8">\
+<title>Confirmaci\'f3n de Asistencia</title>\
+\
+<style>\
+body \{\
+  margin: 0;\
+  font-family: 'Georgia', serif;\
+  background: linear-gradient(135deg, #f5f0eb, #e8dcd1);\
+  display: flex;\
+  justify-content: center;\
+  align-items: center;\
+  min-height: 100vh;\
+  padding: 20px;\
+\}\
+\
+.box \{\
+  background: #ffffff;\
+  padding: 50px 35px;\
+  border-radius: 25px;\
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);\
+  text-align: center;\
+  width: 92%;\
+  max-width: 450px;\
+\}\
+\
+h2 \{\
+  font-size: 26px;\
+  margin-bottom: 10px;\
+  font-weight: normal;\
+\}\
+\
+.sub \{\
+  font-size: 16px;\
+  color: #777;\
+  margin-bottom: 25px;\
+\}\
+\
+input \{\
+  width: 100%;\
+  padding: 14px;\
+  margin: 10px 0;\
+  border-radius: 12px;\
+  border: 1px solid #ddd;\
+  font-size: 16px;\
+  box-sizing: border-box;\
+\}\
+\
+button \{\
+  width: 100%;\
+  padding: 14px;\
+  margin-top: 12px;\
+  border-radius: 12px;\
+  border: none;\
+  font-size: 16px;\
+  cursor: pointer;\
+  transition: 0.3s;\
+\}\
+\
+.confirmar \{\
+  background: #25D366;\
+  color: white;\
+\}\
+\
+.confirmar:hover \{\
+  background: #1ebe5d;\
+\}\
+\
+.no \{\
+  background: #e74c3c;\
+  color: white;\
+\}\
+\
+.no:hover \{\
+  background: #c0392b;\
+\}\
+</style>\
+\
+</head>\
+\
+<body>\
+\
+<div class="box">\
+  <h2>Confirmaci\'f3n</h2>\
+  <div class="sub">Nos encantar\'e1 contar con tu presencia</div>\
+\
+  <input \
+    type="text" \
+    id="nombre" \
+    placeholder="Tu nombre"\
+    required\
+  >\
+\
+  <input \
+    type="number" \
+    id="personas" \
+    placeholder="N\'famero de personas (incluy\'e9ndote)"\
+    required\
+  >\
+\
+  <button class="confirmar" onclick="confirmar()">\
+    Confirmar asistencia\
+  </button>\
+\
+  <button class="no" onclick="noAsistire()">\
+    No podr\'e9 asistir\
+  </button>\
+</div>\
+\
+<script>\
+\
+var telefono = "523327385766";\
+\
+function confirmar() \{\
+\
+  var nombre = document.getElementById("nombre").value.trim();\
+  var personas = document.getElementById("personas").value;\
+\
+  // VALIDAR NOMBRE\
+  if(nombre === "") \{\
+    alert("Por favor escribe tu nombre");\
+    return;\
+  \}\
+\
+  // VALIDAR PERSONAS\
+  if(personas === "" || personas <= 0) \{\
+    alert("Por favor indica cu\'e1ntas personas asistir\'e1n");\
+    return;\
+  \}\
+\
+  var mensaje =\
+  "Hola, soy " + nombre +\
+  ". Confirmo mi asistencia a la fiesta de XV a\'f1os de Alexa Kristell. Asistiremos " +\
+  personas +\
+  " persona(s). Muchas gracias por la invitaci\'f3n.";\
+\
+  abrirWhats(mensaje);\
+\}\
+\
+function noAsistire() \{\
+\
+  var nombre = document.getElementById("nombre").value.trim();\
+\
+  // VALIDAR NOMBRE\
+  if(nombre === "") \{\
+    alert("Por favor escribe tu nombre");\
+    return;\
+  \}\
+\
+  var mensaje =\
+  "Hola, soy " + nombre +\
+  ". Agradezco mucho la invitaci\'f3n, pero en esta ocasi\'f3n no podr\'e9 asistir.";\
+\
+  abrirWhats(mensaje);\
+\}\
+\
+function abrirWhats(mensaje)\{\
+\
+  var url =\
+  "https://wa.me/" +\
+  telefono +\
+  "?text=" +\
+  encodeURIComponent(mensaje);\
+\
+  window.open(url, "_blank");\
+\}\
+\
+</script>\
+\
+</body>\
+</html>}
